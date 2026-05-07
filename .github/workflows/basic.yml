@@ -1,4 +1,4 @@
-name: Basic GitHub Action
+name: Python CI demo
 
 on:
   push:
@@ -6,15 +6,20 @@ on:
       - main
 
 jobs:
-  first-job:
+  run-python:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Print Message
-        run: echo "Hello CJ, GitHub Action is working!"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Show Files
-        run: ls -la
+      - name: Verify Python Installation
+        run: python --version
+
+      - name: Run Python Script
+        run: python app.py
