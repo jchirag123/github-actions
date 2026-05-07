@@ -17,4 +17,4 @@ jobs:
         run: echo "Hello CJ, GitHub Action is working!"
 
       - name: Show Files
-        run: ls - la
+        run: ls -la
